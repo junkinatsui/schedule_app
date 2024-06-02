@@ -17,6 +17,9 @@
       <th>終了日</th>
       <th>終日</th>
       <th>更新日時</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
 
@@ -25,18 +28,26 @@
         <tr>
           <td><%= schedule.id %></td>
           <td><%= schedule.title %></td>
-          <td><%= schedule.start_date %></td>
-          <td><%= schedule.end_date %></td>
-          <td><%= schedule.all_day %></td>
-          <td><%= schedule.updated.at %></td>
-          <td><%= schedule.created.at %></td>
-          #更新と新規を合わせる
+          <td><%= schedule.start_day.to_s(:datetime_jp) %></td>
+          <td><%= schedule.end_day.to_s(:datetime_jp) %></td>
+          <td><%= schedule.all_day ? '◯': '' %></td>
+          <td><%= schedule.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+          <td>
+            <%= link_to "詳細", schedule %>
+          </td>
+          <td>
+            <%= link_to "編集", [:edit,schedule] %>
+          </td>
+          <td>
+            <%= link_to "削除", schedule, method: :delete,data: { confirm: "予定を削除しますか？" } %>
+          </td>
         <tr>
     <% end %>
   </tbody>
 </table>
 
 <p>予定合計</p>
-<% #予定の合計を表示 %>
+<%= sum = Schedule.all.count %>
+
 <p>本日の日付</p>
-<% #本日の日付を表示 %>
+<%= now = Date.today%>

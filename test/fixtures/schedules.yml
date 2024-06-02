@@ -2,12 +2,14 @@
 
 one:
   title: MyString
-  start_day: 2024-06-01 18:56:00
-  end_day: 2024-06-01 18:56:00
-  all_day: 2024-06-01 18:56:00
+  start_day: 2024-06-02
+  end_day: 2024-06-02
+  all_day: false
+  memo: MyString
 
 two:
   title: MyString
-  start_day: 2024-06-01 18:56:00
-  end_day: 2024-06-01 18:56:00
-  all_day: 2024-06-01 18:56:00
+  start_day: 2024-06-02
+  end_day: 2024-06-02
+  all_day: false
+  memo: MyString

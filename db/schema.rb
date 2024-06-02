@@ -10,22 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_01_095600) do
-
-  create_table "event_dates", force: :cascade do |t|
-    t.string "title"
-    t.date "start_date"
-    t.date "end_date"
-    t.string "all_day"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2024_06_02_082436) do
 
   create_table "schedules", force: :cascade do |t|
     t.string "title"
-    t.time "start_day"
-    t.time "end_day"
-    t.time "all_day"
+    t.date "start_day"
+    t.date "end_day"
+    t.boolean "all_day"
+    t.string "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

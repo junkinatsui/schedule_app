@@ -4,29 +4,42 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    @shcedules = Schedule.new
+    @schedule = Schedule.new
   end
 
   def create
-    @schedules = Shcedule.new(params.require(:schedule).permit(:title, :start_day, :end_day, :all_day))
+    @schedule = Schedule.new(params.require(:schedule).permit(:title, :start_day, :end_day, :all_day, :memo))
     if @schedule.save
       flash[:notice] = "スケジュールを登録しました"
-      redirect_to :index
+      redirect_to schedules_path
     else
       render "new"
     end
   end
 
   def show
+    @schedule = Schedule.find(params[:id])
   end
 
   def edit
+    @schedule = Schedule.find(params[:id])
   end
 
   def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(params.require(:schedule).permit(:title, :start_day, :end_day, :all_day, :memo))
+      flash[:notice] = "スケジュールを更新しました"
+      redirect_to :schedules
+    else
+      render "edit"
+    end
   end
 
   def destroy
+    @schedule = Schedule.find(params[:id])
+    @schedule.destroy
+    flash[:notice] = "スケジュールを削除しました"
+    redirect_to :schedules
   end
 
 end
