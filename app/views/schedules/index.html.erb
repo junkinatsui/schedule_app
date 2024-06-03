@@ -6,7 +6,7 @@
 
 
 
-<p><%= link_to "新規追加", :new_schedule %></p>
+<p class= "button"><%= link_to "新規追加", :new_schedule %></p>
 
 <table>
   <thead>
@@ -46,8 +46,10 @@
   </tbody>
 </table>
 
+<footer>
 <p>予定合計</p>
-<%= sum = Schedule.all.count %>
+<p><%= sum = Schedule.all.count %></p>
 
 <p>本日の日付</p>
-<%= now = Date.today%>
+<p><%= now = Date.today%></p>
+</footer>
